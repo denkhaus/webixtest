@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>webix test</title>
+
+
+
+
+	<!-- Webix Library -->
+	<script type="text/javascript" src="libs/webix/codebase/webix_debug.js"></script>
+
+
+	<!-- Dynamic themes -->
+	<script type="text/javascript">
+		var user   = webix.remote.$user;
+		var config = (user && user.settings) ? JSON.parse(user.settings): {};
+		var theme = (config.theme || webix.storage.local.get("webix-test--:app:theme") || "siberia:webix").split(":");
+		
+		document.write('<link type="text/css" rel="stylesheet" href="libs/webix/codebase/'+theme[1]+'.css">');
+		document.write('<link type="text/css" rel="stylesheet/less" href="assets/theme.'+theme[0]+'.less">');
+	</script>
+
+
+
+	<!-- Development only -->
+	<script type="text/javascript" src="libs/less/dist/less.min.js"></script>
+
+	<!-- The app's logic -->
+	<script type="text/javascript" data-main="app" src="libs/requirejs/require.js"></script>
+
+</head>
+<body></body>
+</html>
